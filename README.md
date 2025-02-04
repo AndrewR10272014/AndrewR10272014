@@ -3,7 +3,7 @@
 - 🌱 I’m currently learning Stuff
 - 💞️ I’m looking to collaborate on something
 - 📫 How to reach me H.ren@bjab.org
-- 😄 Pronouns: happy
+- 😄 Pronouns: he/him
 - ⚡ Fun fact: I Like to eat most foods
 - I like skateboarding and playing blooket
 - Hi/bye!😀
