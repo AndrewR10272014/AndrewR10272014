@@ -5,7 +5,7 @@
 - 📫 How to reach me H.ren@bjab.org
 - 😄 Pronouns: he/him
 - ⚡ Fun fact: I Like to eat most foods
-- I like skateboarding and playing blooket
+- I like skateboarding and playing blooket/blacket
 - Hi/bye!😀
 
 <!---
