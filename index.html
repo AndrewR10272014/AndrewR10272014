@@ -1,0 +1,93 @@
+//Blookit
+import React,{ useState,useEffect }from 'react';
+ímport RcactDOM from'react-dom/client:
+Import { BrowserRouter as Router,Routes,Route,Link }from'react-router-dom';
+import'./Index.css';
+Import{ InitiallzeAppfrom }'firebase/app';
+Import{ getFirestore,doc,getDoc,setDoc,updateDoc,collectuon,onSnapshot }fromrebasc/frestorc';
+Import { getAuth,slgnlnAnonymously }from 'firebase/auth';
+const firebaseConfig = {
+apiKey:“YOURAPI_KEY”,
+
+authDomaln: "YOURAUTH_DOMAIN",
+project_ld:"YOURPROJECT_ID",
+storageBucket:"YOUR_STORAGE_BUCKET",
+messagingSenderld: "YOURSENDERID",
+appld: "YOURAPP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+signInAnonymously(auth).then(()=>console.log["Signed in").catch(console.error);
+const Header= () => (
+
+
+<header className="bg-blue-500 p-4 text-white lex justify-between"><h1>Blookit Clone</h1>
+<nav><Link to="/">Home</Link>|<Link to="/wheel">Wheel</Link>I<Link to="/plants">Plants</Link>|<Link to="/leaderboard">Leaderboard</Link>1<Link to="/market">Market</Link>|<Link to="/chat">Chat</Link>|<Link to="/avatars">Avatars</Línk>|<Link to="/news">News</Link></nav></header>);
+const Home=0=>(<div className="p-4"><h2>Welcome to Blookit Clone</h2><p>Explore quizzes,grow your plant,spin for tokens,and more!</p></div>
+);
+const Wheel=0=>{const [tokens,setTokens]=useState(0);const spin=0=>{const reward=Math.floor(Math.random0*100);setTokens(tokens+reward);alert(`You won ${reward}tokens!`);
+};return(
+
+<div className="p-4">
+<h2>Dally Wheel Spin</h2>
+<button onClick={spín}className="bg-green-500 text-white px-4 py-2">Spin</button><p>Total Tokens:{tokens}</p>
+</div>
+);
+};
+const Plants=0=>{
+const [growth,setGrowth]=useState(0);const water=0=>setGrowth(growth+1);return(<div className="p-4"><h2>My Plant</h2><p>Growth Level:{growth}</p><button onClick={water}className="bg-blue-300 p-2 mt-2">Water Plant</button></div>);};
+const Leaderboard=0=>{
+const [leaders,setLeaders]=useState(D);
+useEffect(O=>{
+const unsub=onSnapshot(collection(db,"Ileaderboard"),(snapshot)=>{
+const data =snapshot.docs.map(doc=>doc.dataO);
+setLeaders(data.sort((a,b)=>b.tokens-a.tokens).slice(0,10));
+
+});
+return()=>unsub():
+,(1);
+return(<div className="p-4"><h2>Top Players</h2><ol>(leaders.map((p,1)=>cli key=(1)>{p.name):[p.tokens}tokens</l>)}</0l></div>
+);
+};
+const Market=()=>(<div className="p-4"><h2>Market</h2><p>Buy boosts,Blooks,and more(Coming soon)</p></div>
+);
+const Chat=0=>(<div className="p-4"><h2>Chat</h2><p>Multiplayer chat under development!</p></div>
+);
+
+const Avatars=0=>(<div className="p-4"><h2>Choose Your Avatar</h2><p>Feature coming soon!</p></div>);
+const News=0)=>(<div className="p-4"><h2>Latest News</h2><ul>
+<li>New wheel mechanics launched</li>
+<li>/Plants update released</li>
+<li>√Leaderboard now live!</li>
+</ul></div>);
+const Main=0=>(<Router><Header/><Routes>
+<Route path="/"element={<Home />}/><Route path="/wheel"element={<Wheel/>}/><Route path="/plants"element={<Plants/>}/><Route path="/leaderboard"element={<Leaderboard/>}/>
+
+cRoute path="/market"element=(<Market/>)/><Route path="/chat"element=(<Chat/>}/><Route path="/avatars"element=(<Avatars/>}/><Route path="/news"element=(<News/>}/></Routes></Router>);
+const rot =ReactDOM.createRoot(documentgetElementByldCroe);rootrender(<Main/>);
+
+<li>/<strong>Plant Types</strong>:
+<ul>
+<li>Rose</l|><li>Lemon</I><li>Green Lemon</Ii><li>Orange</li><li>Strawberry</li><li>Dandelion</I><li>Tulips</li>
+</ul></li><li>I<strong>Plant Growth Stages</strong:
+<ul>
+<li>Sprout-2 days</li>
+<li>Growth-2days</li>
+<li>Maturing-3 days</li>
+</ul></li><Li>普<strong>Garden Mechanics</strong>:
+<ul><li>Max of 30 plant slots</li><li>Slot prices:First 5-2500,Last 2-750●</li><li>Water daily</li><li>Fertilizer:50●for5-hour growth boost</li>
+</ul></Li><li>画<strong>Daily Wheel Probabilities</strong>:<ul>
+
+<li>5000-15%</li><ll>700●-6.5%</lLí><li>800●-6%</li><li>8500-5%</li><li>9500-3.5%</li><li>1000●-3%</li><li>1250●-2%</Li><li>1500●-1%</li><li>3000●-0.2-1%</lí><li>10K●-0.05%</li><li>1M●-0.000175%</li></ul></li><li>网<strong>Game Modes</strong>:<ul><li>All in(Inspired by Blooket)</li><li>Trust No One(Inspired by Among Us)</li></ul></Li><li><strong>Other Features</strong>:<ul><li>Shop</li><li>Market</li><li>Blooks</li><li>Email other players</li><li>Chat</li><li>News</li>
+
+uClasses<lis
+l>My Sets</li>
+
+cli₇Discover</li>
+cli>Play</li>
+cli>Credits</li>
+<ul>
+<li>
+<ul>
